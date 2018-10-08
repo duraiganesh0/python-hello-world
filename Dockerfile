@@ -1,5 +1,11 @@
-FROM python:2.7-onbuild
+FROM python:2.7-slim
 
-EXPOSE 80
+WORKDIR /app
 
-ENTRYPOINT ["python", "/usr/src/app/hello-world.py"]
+COPY . /app
+
+RUN pip install -r requirements.txt
+
+ENV NAME World
+#
+#CMD ["python", "hello-world.py"]
